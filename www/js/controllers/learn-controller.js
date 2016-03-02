@@ -1,56 +1,60 @@
 // CONTROLLER: learn-controller
 // Controls the learn page.
 // Injects: $scope, $rootScope, $ionicPopover, Photo, Labels
-app.controller('learn-controller', ['$ionicScrollDelegate', '$scope', '$ionicPopover', 'Photo', 'Labels', function($ionicScrollDelegate, $scope, $ionicPopover, Photo, Labels) {
+app.controller('learn-controller', ['$rootScope', '$ionicScrollDelegate', '$scope', '$ionicPopover', 'Photo', 'Labels', function($rootScope, $ionicScrollDelegate, $scope, $ionicPopover, Photo, Labels) {
     $scope.labels = Labels.labels;
     $scope.photoService = Photo;
-	$scope.createNew = false;
-	$scope.invalidLabel = false;
-	$scope.newLabel = "";
+	$rootScope.labelEdit = false;
+	$scope.curIndex = 0;
+	$scope.nullString = "";
+	$rootScope.curLabel;
     
-    $scope.curLabel = '';
-
-    var poptemplate = '<ion-popover-view class="label-popover">' + '<h3 class="title">{{curLabel}}</h3>' + '</ion-popover-view>';
-	var menu = '<ion-popover-view class="label-popover">' + '<h5 ng-show="createNew" class="title" ng-trim="true">Click somewhere</h5>' + '<h5 ng-hide="createNew" class="title" ng-trim="true">Label & click!</h5>' + '<input type="text" ng-model="newLabel" ng-change="sendInput(newLabel)">' + '<h3 ng-show="invalidLabel" class="title">invalid</h3>' + '<h3 class="title">{{$scope.xpos}}</h3>' + '<h3 class="title">{{$scope.ypos}}</h3>' + '<button class="button energized button-icon icon ion-ios-circle-filled label" ng-click="swapBool($scope)"></button>' + '</ion-popover-view>';
 	
+	$ionicPopover.fromTemplateUrl('templates/popover.html', {
+        scope: $scope
+    }).then(function(popover) {
+        $scope.popover = popover;
+    });
+    
+    /* NOTE: fromTemplateUrl is occasionally reported to yield errors on mobile, alternative here:
+    var poptemplate = (content, e.g. '<ion-popover-view class="label-popover">' + '<h3 class="title">text</h3>' + '</ion-popover-view>';)
+    
     $scope.popover = $ionicPopover.fromTemplate(poptemplate, {
-        scope: $scope
-    });
-	$scope.menu = $ionicPopover.fromTemplate(menu, {
-        scope: $scope
-    });
+       scope: $scope
+   });
+    */
 	
-	$scope.sendInput = function(newlabel) {
-		$scope.newLabel = newlabel;
+	$scope.$on('popover.hidden', function() {
+		$rootScope.labelEdit = false;
+	});
+	
+	$scope.deleteLabel = function() {
+		$scope.popover.hide();
+		$scope.labels.splice($scope.curIndex, 1);
 	}
 	
-	$scope.swapBool = function() {
-		if ($scope.createNew) {$scope.createNew = false;}
-		else {
-			if ($scope.newLabel.length > 0)
-			{
-				$scope.invalidLabel = false;
-				$scope.createNew = true;
-			}
-			else {$scope.invalidLabel = true;}
-		}
+    $scope.swapLabelEdit = function(boole) {
+        if (boole) {$rootScope.labelEdit = !$rootScope.labelEdit;}
+        else {$rootScope.labelEdit = false;}
+        $scope.labels[$scope.curIndex].label = $rootScope.curLabel;
+    }
+	
+	$scope.eventManage = function($event) {
+		$scope.addControl($event); 
+		//popup?
 	}
 	
 	$scope.addControl = function(event) {
-		if ($scope.createNew) {
-			$scope.createNew = false;
-			$scope.xpos = (event.gesture.touches[0].pageX - 20 + $ionicScrollDelegate.getScrollPosition().left) / (0.01 * document.getElementById('imagecont').getBoundingClientRect().width);
-			$scope.ypos = (event.gesture.touches[0].pageY - 45 - 23 + $ionicScrollDelegate.getScrollPosition().top) / (0.01 * document.getElementById('imagecont').getBoundingClientRect().height);
-			Labels.addLabel($scope.xpos, $scope.ypos, $scope.newLabel);
-		}
+        $rootScope.labelEdit = true;
+		$rootScope.insReset();
+        $scope.xpos = (event.offsetX - 20) / (0.01 * document.getElementById('imagecont').getBoundingClientRect().width);
+        $scope.ypos = (event.offsetY - 23) / (0.01 * document.getElementById('imagecont').getBoundingClientRect().height);
+        Labels.addLabel($scope.xpos, $scope.ypos, "");
 	}
 	
-    $scope.openPopover = function($event, index) {
+    $scope.openPopover = function(event, index) {
         $scope.index = {value:index};
-        $scope.curLabel = $scope.labels[index].label;
-        $scope.popover.show($event);
+		$scope.curIndex = index;
+        $scope.popover.show(event);
     }
-	$scope.openMenu = function($event, index) {
-		$scope.menu.show($event);
-	}
 }])

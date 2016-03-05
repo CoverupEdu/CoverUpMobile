@@ -33,23 +33,33 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/photo.html',
         controller: 'photo-controller'
     })
-    .state('learn', {
-        url: '/learn',
-        templateUrl: 'templates/learn.html',
-        controller: 'learn-controller'
+    .state('modify', {
+        url: '/modify',
+        templateUrl: 'templates/modify.html',
+        controller: 'modify-controller'
     })
     .state('study', {
         url: '/study',
         templateUrl: 'templates/study.html',
-        controller: 'Study-controller'
+        controller: 'study-controller'
     })
 
     $urlRouterProvider.otherwise('/home');
 });
 
-app.controller('popover-controller', function($scope, $ionicPopover, $rootScope) {
+app.controller('popover-controller', function($scope, $ionicPopover, $rootScope, $timeout) {
 	$scope.insLabel;
 
+	$rootScope.textFocus = function(){
+		$timeout(function () {
+        document.getElementById('textEntry').focus();
+		console.log("kek");
+        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+          cordova.plugins.Keyboard.show(); //open keyboard manually
+        }
+      }, 350);
+	};
+	
 	$rootScope.editButton = function() {
 		$rootScope.curLabel = $scope.insLabel;
 		if (!$rootScope.labelEdit) {

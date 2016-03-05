@@ -1,20 +1,21 @@
-// CONTROLLER: learn-controller
-// Controls the learn page.
+// CONTROLLER: modify-controller
+// Controls the modify page.
 // Injects: $scope, $rootScope, $ionicPopover, Photo, Labels
-app.controller('learn-controller', ['$rootScope', '$ionicScrollDelegate', '$scope', '$ionicPopover', 'Photo', 'Labels', function($rootScope, $ionicScrollDelegate, $scope, $ionicPopover, Photo, Labels) {
+app.controller('modify-controller', ['$rootScope', '$ionicScrollDelegate', '$scope', '$ionicPopover', 'Photo', 'Labels', function($rootScope, $ionicScrollDelegate, $scope, $ionicPopover, Photo, Labels) {
     $scope.labels = Labels.labels;
     $scope.photoService = Photo;
 	$rootScope.labelEdit = false;
 	$scope.curIndex = 0;
 	$scope.nullString = "";
 	$rootScope.curLabel;
+	$scope.checkFocused;
     
 	
-	$ionicPopover.fromTemplateUrl('templates/popover.html', {
+	$ionicPopover.fromTemplateUrl('templates/modify-popover.html', {
         scope: $scope
     }).then(function(popover) {
         $scope.popover = popover;
-    });
+	});
     
     /* NOTE: fromTemplateUrl is occasionally reported to yield errors on mobile, alternative here:
     var poptemplate = (content, e.g. '<ion-popover-view class="label-popover">' + '<h3 class="title">text</h3>' + '</ion-popover-view>';)
@@ -53,8 +54,10 @@ app.controller('learn-controller', ['$rootScope', '$ionicScrollDelegate', '$scop
 	}
 	
     $scope.openPopover = function(event, index) {
+		$scope.checkFocused=true;
         $scope.index = {value:index};
 		$scope.curIndex = index;
         $scope.popover.show(event);
+		$rootScope.textFocus();
     }
 }])

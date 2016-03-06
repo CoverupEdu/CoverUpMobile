@@ -74,3 +74,21 @@ app.controller('popover-controller', function($scope, $ionicPopover, $rootScope,
 		$scope.insLabel = "";
 	}
 });
+
+app.directive('resize', function ($window) {
+    return function (scope, element, attr) {
+        var w = angular.element($window);
+         scope.$watch(function () {
+            return {
+                'h': $window.innerHeight,
+                'w': $window.innerWidth
+            };
+        }, function () {
+            scope.setStyleAll();
+        }, true);
+
+        w.bind('resize', function () {
+            scope.$apply();
+        });
+    }
+})

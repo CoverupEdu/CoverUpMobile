@@ -9,6 +9,7 @@ app.controller('modify-controller', ['$rootScope', '$window', '$ionicScrollDeleg
 	$scope.nullString = "";
 	$rootScope.curLabel;
 	$scope.checkFocused;
+	$scope.labelStyle = [];
 	
 	$ionicPopover.fromTemplateUrl('templates/modify-popover.html', {
         scope: $scope
@@ -24,13 +25,18 @@ app.controller('modify-controller', ['$rootScope', '$window', '$ionicScrollDeleg
    });
     */
 	
-	$scope.setStyle = function(xval, yval) {
-		var styleObj = {
-			left: (xval * 0.01 * document.getElementById('imagecont').getBoundingClientRect().width + 'px'),
-			top: (yval * 0.01 * document.getElementById('imagecont').getBoundingClientRect().height + 'px')
+	$scope.setStyleAll = function() {
+		console.log("update");
+		for (i = 0; i < $scope.labels.length; i++) {
+			$scope.setStyle(i);
+		}
+	}
+	
+	$scope.setStyle = function(val) {
+		$scope.labelStyle[val] = {
+			left: ($scope.labels[val].x * 0.01 * document.getElementById('imagecont').getBoundingClientRect().width + 'px'),
+			top: ($scope.labels[val].y * 0.01 * document.getElementById('imagecont').getBoundingClientRect().height + 'px')
 		};
-		console.log(styleObj);
-		return styleObj;
 	}
 
 	$scope.$on('popover.hidden', function() {

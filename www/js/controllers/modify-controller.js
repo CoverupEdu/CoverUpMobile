@@ -24,6 +24,14 @@ app.controller('modify-controller', ['$rootScope', '$window', '$ionicScrollDeleg
    });
     */
 	
+	$scope.setStyle = function(xval, yval) {
+		var styleObj = {
+			left: (xval * 0.01 * document.getElementById('imagecont').getBoundingClientRect().width + 'px'),
+			top: (yval * 0.01 * document.getElementById('imagecont').getBoundingClientRect().height + 'px')
+		};
+		console.log(styleObj);
+		return styleObj;
+	}
 
 	$scope.$on('popover.hidden', function() {
 		$rootScope.labelEdit = false;

@@ -26,7 +26,6 @@ app.controller('modify-controller', ['$rootScope', '$window', '$ionicScrollDeleg
     */
 	
 	$scope.setStyleAll = function() {
-		console.log("update");
 		for (i = 0; i < $scope.labels.length; i++) {
 			$scope.setStyle(i);
 		}

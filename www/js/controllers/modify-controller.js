@@ -1,7 +1,7 @@
 // CONTROLLER: modify-controller
 // Controls the modify page.
 // Injects: $scope, $rootScope, $ionicPopover, Photo, Labels
-app.controller('modify-controller', ['$rootScope', '$ionicScrollDelegate', '$scope', '$ionicPopover', 'Photo', 'Labels', function($rootScope, $ionicScrollDelegate, $scope, $ionicPopover, Photo, Labels) {
+app.controller('modify-controller', ['$rootScope', '$window', '$ionicScrollDelegate', '$scope', '$ionicPopover', 'Photo', 'Labels', function($rootScope, $window, $ionicScrollDelegate, $scope, $ionicPopover, Photo, Labels) {
     $scope.labels = Labels.labels;
     $scope.photoService = Photo;
 	$rootScope.labelEdit = false;
@@ -9,7 +9,6 @@ app.controller('modify-controller', ['$rootScope', '$ionicScrollDelegate', '$sco
 	$scope.nullString = "";
 	$rootScope.curLabel;
 	$scope.checkFocused;
-    
 	
 	$ionicPopover.fromTemplateUrl('templates/modify-popover.html', {
         scope: $scope
@@ -25,6 +24,7 @@ app.controller('modify-controller', ['$rootScope', '$ionicScrollDelegate', '$sco
    });
     */
 	
+
 	$scope.$on('popover.hidden', function() {
 		$rootScope.labelEdit = false;
 	});

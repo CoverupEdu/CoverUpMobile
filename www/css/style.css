@@ -55,6 +55,9 @@ li.home-footer {
     box-shadow: none;
     color: #fff;
     font-size: 17px; }
+  .bar-coverupOrange .button.button-bold {
+    font-weight: 400; } /*To match the size of the 'Ready!' button font with the back button font (hardly noticeable, but there is a slight difference)*/
+
   .bar-coverupOrange .button.button-icon {
     border-color: transparent;
     background: none; }

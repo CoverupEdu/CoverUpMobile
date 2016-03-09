@@ -1,1 +1,67 @@
 /* Empty. Add your own CSS if you like */
+ul.home-footer {
+    	list-style-type: none;
+	position: fixed;
+	bottom: 0;
+	margin: 0;
+    	padding: 0;
+	width: 100%;
+         background-color: #F79522;
+         display: flex;
+  	justify-content: space-between;
+  	border-top: 1px solid #FFFFFF;
+
+}
+li a.home-footer {
+        display: block;
+        padding: 10px 10px;	
+        overflow: hidden;
+        text-align: center;
+        font-size: 28px;
+}	
+
+li a.home-footer:link, li a.home-footer:hover, li a.home-footer:visited {
+	text-decoration: none;
+	color: white;	
+}
+
+li.home-footer {
+        float: left;
+        padding: 40px 10px;
+}
+
+.bar.bar-coverupOrange {
+    border-color: #FFFFFF;
+    background-color: #F79522;
+    background-image: linear-gradient(0deg, #FFFFFF, #FFFFFF 50%, transparent 50%);
+    color: #FFFFFF; }
+    .bar.bar-coverupOrange.title {
+        color: #FFFFFF; }
+    .bar.bar-coverupOrange.footer {
+        background-image: linear-gradient(180deg, #FFFFFF, #FFFFFF 50%, transparent 50%); }
+        
+.bar-coverupOrange .button {
+  border-color: transparent;
+  background-color: #F79522;
+  color: #FFFFFF; }
+  .bar-positive .button:hover {
+    color: #FFFFFF;
+    text-decoration: none; }
+  .bar-coverupOrange .button.active, .bar-coverupOrange .button.activated {
+    background-color: #F79522; }
+  .bar-coverupOrange .button.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 17px; }
+  .bar-coverupOrange .button.button-bold {
+    font-weight: 400; } /*To match the font weight of the 'Ready!' button font with the back button font (hardly noticeable, but there is a slight difference)*/
+
+  .bar-coverupOrange .button.button-icon {
+    border-color: transparent;
+    background: none; }
+    
+.button.ion-ios-arrow-forward:before {
+ font-size: 25px !important;   
+}

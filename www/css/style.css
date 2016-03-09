@@ -1,1 +1,38 @@
 /* Empty. Add your own CSS if you like */
+ul.home-footer {
+    	list-style-type: none;
+	position: fixed;
+	bottom: 0;
+	margin: 0;
+    	padding: 0;
+	width: 100%;
+         background-color: #F79522;
+         display: flex;
+  	justify-content: space-between;
+  	border-top: 1px solid #FFFFFF;
+
+}
+li a.home-footer {
+        display: block;
+        padding: 10px 10px;	
+        overflow: hidden;
+        text-align: center;
+        font-size: 28px;
+}	
+
+li a.home-footer:link, li a.home-footer:hover, li a.home-footer:visited {
+	text-decoration: none;
+	color: white;	
+}
+
+li.home-footer {
+        float: left;
+        padding: 40px 10px;
+}
+
+.title.title-center.header-item { //Class of the Ionic header bar
+    background-color: #F79522;
+    color: #FFFFFF;
+    padding: 0px;
+    margin: 0px;
+}

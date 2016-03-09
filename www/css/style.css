@@ -30,9 +30,31 @@ li.home-footer {
         padding: 40px 10px;
 }
 
-.title.title-center.header-item { //Class of the Ionic header bar
+.bar.bar-coverupOrange {
+    border-color: #FFFFFF;
     background-color: #F79522;
+    background-image: linear-gradient(0deg, #FFFFFF, #FFFFFF 50%, transparent 50%);
+    color: #FFFFFF; }
+    .bar.bar-coverupOrange.title {
+        color: #FFFFFF; }
+    .bar.bar-coverupOrange.footer {
+        background-image: linear-gradient(180deg, #FFFFFF, #FFFFFF 50%, transparent 50%); }
+        
+.bar-coverupOrange .button {
+  border-color: transparent;
+  background-color: #F79522;
+  color: #FFFFFF; }
+  .bar-positive .button:hover {
     color: #FFFFFF;
-    padding: 0px;
-    margin: 0px;
-}
+    text-decoration: none; }
+  .bar-coverupOrange .button.active, .bar-coverupOrange .button.activated {
+    background-color: #F79522; }
+  .bar-coverupOrange .button.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 17px; }
+  .bar-coverupOrange .button.button-icon {
+    border-color: transparent;
+    background: none; }

@@ -47,14 +47,21 @@
 
 /*Styling functions for button positioning*/
 
-.button.pull-left { /*.pull-left and .pull-center are used for aligning buttons on home page footer...   .pull-right is already included by ionic in their css file*/
+.button.pull-left-home { /*.pull-left and .pull-center are used for aligning buttons on home page footer...   .pull-right is already included by ionic in their css file*/
     position: absolute;
     top: 5px;
-    left: 5px !important;
+    left: 10% !important;
     bottom: 5px;
 }
 
-.button.pull-center {
+.button.pull-right-home {
+    position: absolute;
+    top: 5px;
+    right: 10% !important;
+    bottom: 5px;
+}
+
+.button.pull-center-home {
     margin-left: auto;
     margin-right: auto;
 }

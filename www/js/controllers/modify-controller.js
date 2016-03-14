@@ -37,10 +37,6 @@ app.controller('modify-controller', ['$timeout', '$rootScope', '$window', '$ioni
 			top: ($scope.labels[val].y * 0.01 * document.getElementById('imagecont').getBoundingClientRect().height + 'px')
 		};
 	}
-
-	$scope.$on('popover.hidden', function() {
-		$rootScope.labelEdit = false;
-	});
 	
 	$scope.deleteLabel = function() {
 		$scope.popover.hide();

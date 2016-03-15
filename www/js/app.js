@@ -60,11 +60,6 @@ app.controller('popover-controller', function($scope, $ionicPopover, $rootScope,
 		  }, 350);
 	}};
 	
-	$scope.$on('popover.hidden', function() {
-		$rootScope.editButton();
-		if ($rootScope.labelEdit) {$rootScope.labelEdit = false;}
-	});
-	
 	$rootScope.editButton = function() {
 		$rootScope.curLabel = $scope.insLabel;
 		if (!$rootScope.labelEdit) {
@@ -97,9 +92,3 @@ app.directive('resize', function ($window) {
         });
     }
 })
-
-app.controller('name-here-controller', function($scope, $ionicPopover, $rootScope, $timeout) {
-	
-	}};
-
-

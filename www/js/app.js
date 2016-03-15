@@ -97,3 +97,9 @@ app.directive('resize', function ($window) {
         });
     }
 })
+
+app.controller('name-here-controller', function($scope, $ionicPopover, $rootScope, $timeout) {
+	
+	}};
+
+

@@ -8,6 +8,13 @@
     <div class="bar bar-footer bar-coverupOrange" style="height: 80px !important;">
         <a class="button button-clear button-bold button-coverupOrange pull-left-home" href="#"><i class="ion-bag"></i><br>Marketplace</a>
         <a class="button button-clear button-bold button-coverupOrange pull-center-home" href="#"><i class="ion-person"></i><br>My Sets</a>
-        <a class="button button-clear button-bold button-coverupOrange pull-right-home" href="#/photo"><i class="ion-plus-round"></i><br>Create</a>
+        <div class="create-dropdown">
+            <a class="button button-clear button-bold button-coverupOrange"><i class="ion-plus-round"></i><br>Create</a>
+            <div class="content">
+                <a href="#" ng-click="takePhotoFromGallery()">From Gallery</a>
+                <a href="#" ng-click="takePhotoFromGallery()">Take Photo</a>
+                <a ng-click="setToDefaultPhoto()" href="#/modify">Default (debug)</a>
+            </div>
+        </div>
     </div>
 </ion-view>

@@ -1,6 +1,8 @@
 /* Empty. Add your own CSS if you like */
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*Styling for ionic headers on all pages*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .bar.bar-coverupOrange {
     border-color: #FFFFFF;
@@ -45,19 +47,21 @@
     font-size: 25px !important; /*Resize arrow in Ready! button*/
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*Styling functions for button positioning*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.button.pull-left-home { /*.pull-left and .pull-center are used for aligning buttons on home page footer...   .pull-right is already included by ionic in their css file*/
+.button.pull-left-home { /*.pull-left and .pull-center are used for aligning buttons on home page footer...*/
     position: absolute;
     top: 5px;
-    left: 10% !important;
+    left: 13% !important;
     bottom: 5px;
 }
 
 .button.pull-right-home {
     position: absolute;
     top: 5px;
-    right: 10% !important;
+    right: 13% !important;
     bottom: 5px;
 }
 
@@ -66,5 +70,44 @@
     margin-right: auto;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*Styling for 'Create' button drop down menu on home page (webapp only)*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-       
+.create-dropdown {
+    position: absolute;
+    display: inline-block;
+    min-width: 120px;
+    cursor: pointer;
+    text-align: center;
+    right: 13%;
+}
+
+.create-dropdown .button {
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.create-dropdown .content {
+    display: none;
+    position: absolute;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.create-dropdown .content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.create-dropdown .content a:hover {
+    background-color: #f1f1f1;
+}
+
+.create-dropdown:hover .content {
+    display: block;
+    bottom: 100%;
+}    

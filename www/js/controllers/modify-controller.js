@@ -40,7 +40,7 @@ app.controller('modify-controller', ['$timeout', '$rootScope', '$window', '$ioni
 	
 	$scope.deleteLabel = function() {
 		$scope.popover.hide();
-		$scope.labels.splice($scope.curIndex, 1);
+		Labels.labels.splice($scope.curIndex, 1);
 		$scope.setStyleAll();
 	}
 	
@@ -56,10 +56,9 @@ app.controller('modify-controller', ['$timeout', '$rootScope', '$window', '$ioni
 	}
 	
 	$scope.addControl = function(event) {
-        $rootScope.labelEdit = true;
 		$rootScope.insReset();
-        $scope.xpos = (event.offsetX - 20) / (0.01 * document.getElementById('imagecont').getBoundingClientRect().width);
-        $scope.ypos = (event.offsetY - 23) / (0.01 * document.getElementById('imagecont').getBoundingClientRect().height);
+        $scope.xpos = (event.offsetX) / (0.01 * document.getElementById('imagecont').getBoundingClientRect().width);
+        $scope.ypos = (event.offsetY) / (0.01 * document.getElementById('imagecont').getBoundingClientRect().height);
         Labels.addLabel($scope.xpos, $scope.ypos, "");
 		$timeout(function() {
 			$scope.clickButton($scope.labels.length - 1);
@@ -72,6 +71,7 @@ app.controller('modify-controller', ['$timeout', '$rootScope', '$window', '$ioni
 		$scope.curIndex = index;
         $scope.popover.show(event);
 		$rootScope.textFocus();
+		if ($scope.labels[index].label.length == 0) {$rootScope.editButton();}
     }
 	
 	$scope.clickButton = function(ind) {

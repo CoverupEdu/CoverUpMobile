@@ -44,41 +44,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/study.html',
         controller: 'study-controller'
     })
+	.state('testroot', {
+        url: '/test',
+        templateUrl: 'templates/testroot.html',
+        controller: '???????'
+    })
+	.state('loctest', {
+        url: '/loctest',
+        templateUrl: 'templates/loctest.html',
+        controller: 'loctest-controller'
+    })
 
     $urlRouterProvider.otherwise('/home');
-});
-
-app.controller('popover-controller', function($scope, $ionicPopover, $rootScope, $timeout) {
-	$scope.insLabel;
-
-	$rootScope.textFocus = function(){
-		if ($rootScope.labelEdit) {
-			$timeout(function () {
-			document.getElementById('textEntry').focus();
-			if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-			  cordova.plugins.Keyboard.show(); //open keyboard manually
-			}
-		  }, 350);
-	}};
-	
-	$scope.$on('popover.hidden', function() {
-		$rootScope.editButton();
-		if ($rootScope.labelEdit) {$rootScope.labelEdit = false;}
-	});
-	
-	$rootScope.editButton = function() {
-		$rootScope.curLabel = $scope.insLabel;
-		if (!$rootScope.labelEdit) {
-			$scope.insLabel = $scope.labels[$scope.curIndex].label;
-		}
-		else {$scope.labels[$scope.curIndex].label = $rootScope.curLabel;}
-		$rootScope.labelEdit = !$rootScope.labelEdit;
-		$rootScope.textFocus();
-	};
-	
-	$rootScope.insReset = function() {
-		$scope.insLabel = "";
-	}
 });
 
 app.directive('resize', function ($window) {
@@ -98,3 +75,9 @@ app.directive('resize', function ($window) {
         });
     }
 })
+
+app.controller('name-here-controller', function($scope, $ionicPopover, $rootScope, $timeout) {
+	
+	});
+
+

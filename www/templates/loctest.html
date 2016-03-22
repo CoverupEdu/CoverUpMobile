@@ -1,4 +1,9 @@
 <ion-view view-title="Test - Location" resize ng-app="app">
+<ion-nav-buttons side="right">
+      <button style="margin-right:25px;"class="button button-clear button-bold button-coverupOrange icon-right ion-ios-arrow-forward" ng-click="toggleButtons()">
+          Show buttons?
+      </button>
+</ion-nav-buttons>
 	<ion-content class="content-positive">
 		<div id="imghld2" class="img-holder">
 			<img id="imagecont2" ng-click="clickManage($event, 0, false)" class="image" ng-src="{{photoService.image}}">

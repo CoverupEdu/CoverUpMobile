@@ -1,5 +1,5 @@
 // CONTROLLER: home-controller
-// Controls home page. (This is essentially a copy of photo-controller, without the photo preview.)
+// Controls home page.
 // Injects: $scope, $rootScope, Photo 
 
 app.controller('home-controller', ['$scope', 'Photo', function($scope, Photo) {
@@ -8,6 +8,10 @@ app.controller('home-controller', ['$scope', 'Photo', function($scope, Photo) {
     var btn3 = document.getElementById("button3");
     var market = document.getElementById("market-content");
     var sets = document.getElementById("sets-content");
+        
+    //~~~~~~~~~~~~~~~~~~~~
+    //Home page photo control
+    //~~~~~~~~~~~~~~~~~~~~
 
     $scope.takePhoto = function() {
         var options = {
@@ -43,18 +47,26 @@ app.controller('home-controller', ['$scope', 'Photo', function($scope, Photo) {
     //Home page button control / layout control!
     //~~~~~~~~~~~~~~~~~~~~
     
-    btn1.onclick = function() {
-        this.classList.add("toggle-home-btn");
+    enableMarket = function() {
+        btn1.classList.add("toggle-home-btn");
         btn2.classList.remove("toggle-home-btn");
-        sets.style.visibility = "none";
-        market.style.visibility = "visible";
+        market.style.display = "block";
+        sets.style.display = "none";
+    }
+    
+    enableSets = function() {
+        btn1.classList.remove("toggle-home-btn");
+        btn2.classList.add("toggle-home-btn");
+        market.style.display = "none";
+        sets.style.display = "block";
+    }
+    
+     btn1.onclick = function() {
+        enableMarket();
     }
     
     btn2.onclick = function() {
-        this.classList.add("toggle-home-btn");
-        btn1.classList.remove("toggle-home-btn");
-        market.style.visibility = "none";
-        sets.style.visibility = "visible";
+        enableSets();
     }
 
     $(btn3).hover(
@@ -65,5 +77,7 @@ app.controller('home-controller', ['$scope', 'Photo', function($scope, Photo) {
             $(this).removeClass("toggle-home-btn");
         }
     );
+    
+    enableSets(); //Set tab is open by default
     
 }]);

@@ -2,7 +2,8 @@
 // Controls home page.
 // Injects: $scope, $rootScope, Photo 
 
-app.controller('home-controller', ['$scope', 'Photo', function($scope, Photo) {
+app.controller('home-controller', ['$state', '$scope', 'Photo', function($state, $scope, Photo) {
+    
     var btn1 = document.getElementById("button1");
     var btn2 = document.getElementById("button2");
     var btn3 = document.getElementById("button3");
@@ -40,7 +41,7 @@ app.controller('home-controller', ['$scope', 'Photo', function($scope, Photo) {
     
     $scope.setToDefaultPhoto = function() {
         Photo.setImage("img/default.jpg");
-        $state.go('/modify');
+        $state.go('modify');
     }
     
     //~~~~~~~~~~~~~~~~~~~~

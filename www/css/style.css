@@ -3,7 +3,6 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*Styling for ionic headers on all pages*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
 .bar.bar-coverupOrange {
     border-color: #FFFFFF;
     background-color: #F79522;
@@ -48,29 +47,6 @@
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*Styling functions for button positioning*/
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-.button.pull-left-home { /*.pull-left and .pull-center are used for aligning buttons on home page footer...*/
-    position: absolute;
-    top: 5px;
-    left: 13% !important;
-    bottom: 5px;
-}
-
-.button.pull-right-home {
-    position: absolute;
-    top: 5px;
-    right: 13% !important;
-    bottom: 5px;
-}
-
-.button.pull-center-home {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*Styling for 'Create' button drop down menu on home page (webapp only)*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #home-dropdown {
@@ -103,13 +79,22 @@
 #home-dropdown > ul > li {
     position: relative;   /*~~Positioning*/
     display: inline-block;
-    padding: 0 10px;
-    margin: 30px calc(8%);
+    padding: 2.5px 40px;
+    margin: 27.5px calc(5%);
     vertical-align: top;
     line-height: 30px;
     text-align: center;
-
+    
+    -webkit-border-radius: 7.5px;   /*~~Styling*/
+    -moz-border-radius: 7.5px;
+    border-radius: 7.5px;
+    width: 200px;
+    border: 1px solid #FFFFFF;
 }
+#home-dropdown > ul > li span {
+    display: block;
+}
+
 #home-dropdown > ul > li > a {
     color: #FFFFFF;   /*~~Styling*/
     
@@ -142,16 +127,16 @@
     -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, .4);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, .4);
 
-    -webkit-transition: all .3s .1s;   /*~~Animations*/
-    -moz-transition: all .3s .1s;
-    -o-transition: all .3s .1s;
-    transition: all .3s .1s;
-    }
+    -webkit-transition: all .25s;   /*~~Animations*/
+    -moz-transition: all .25s;
+    -o-transition: all .25s;
+    transition: all .25s;
+}
 #home-dropdown > ul > li:hover > ul {
     opacity: 1;   /*Menu is now visible - previously defined visibility being overriden*/
     visibility: visible;
         
-    bottom: 65px; /*The difference between this bottom: value and the bottom: value in the previous class determines how far the menu moves in the slide in animation*/
+    bottom: 75px; /*The difference between this bottom: value and the bottom: value in the previous class determines how far the menu moves in the slide in animation*/
 }
 #home-dropdown > ul > li > ul:before {  /*This adds the small arrow on the bottom of the dropdown menu*/
     position: absolute;   /*~~Positioning*/
@@ -193,6 +178,18 @@
 }
 #home-dropdown ul ul li:hover {
     border-left: 4px solid #F79522; /*Colour change to orange now makes it visible when moused over.*/
+}
+.toggle-home-btn, .toggle-home-btn > a > span {   /*This class gets toggled when a button is hovered over / clicked*/
+    -webkit-transition: all .25s;   /*~~Animations*/
+    -moz-transition: all .25s;
+    -o-transition: all .25s;
+    transition: all .25s;
+}
+.toggle-home-btn {
+    background-color: #FFFFFF;   /*~~Styling*/
+}
+.toggle-home-btn > a > span {
+    color: #F79522;   /*~~More Styling*/
 }
 
 /*~~~~~~~~~~~~~~~~*/

@@ -79,8 +79,8 @@
 #home-dropdown > ul > li {
     position: relative;   /*~~Positioning*/
     display: inline-block;
-    padding: 2.5px 40px;
-    margin: 27.5px calc(5%);
+    padding: 2.5px 0px;
+    margin: 27.5px 0px;
     vertical-align: top;
     line-height: 30px;
     text-align: center;

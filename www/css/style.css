@@ -107,10 +107,11 @@
     
     position: absolute;   /*~~Positioning*/
     padding: 16px 0 20px 0;
-    margin-left: -90px;
+    margin-left: -300%;
     left: 50%;
     bottom: 55px; /*See comment in next class*/
-    width: 180px;
+    width: 400%;
+    height: 130px;
     text-align: center;
 
     background-color: rgb(250, 250, 250);   /*~~Styling*/
@@ -137,7 +138,7 @@
     position: absolute;   /*~~Positioning*/
     display: block;
     bottom: -20px;
-    left: 50%;
+    left: 75%;
     margin-left: -10px;
     
     content:"";   /*~~Styling*/
@@ -147,10 +148,17 @@
 }
 #home-dropdown > ul ul > li {
     position: relative;
+    float: left;
+    border: 2px solid red;
+    margin: 5px 10px;
+    width: 113px;
+}
+#home-dropdown > ul ul > li:hover {
+    background-color: #149502   
 }
 #home-dropdown ul ul a {
     padding: 5px 8px 7px 16px;   /*~~Positioning*/
-    display: block;
+    display: inline;
     
     color: rgb(50, 50, 50);   /*~~Styling*/
     background-color: rgb(250, 250, 250);
@@ -160,20 +168,7 @@
     -o-transition: background-color .25s;
     transition: background-color .25s;
 }
-#home-dropdown ul ul a:hover {
-    background-color: rgb(240, 240, 240);
-}
-#home-dropdown ul ul li {
-    border-left: 4px solid rgb(250, 250, 250); /*Previously hidden left border is only visible when dropdown menu element is moused over (It's always there, but matches the colour of the background)*/
-    
-    -webkit-transition: border .25s;   /*~~Animations*/
-    -moz-transition: border .25s;
-    -o-transition: border .25s;
-    transition: border .25s;   
-}
-#home-dropdown ul ul li:hover {
-    border-left: 4px solid #F79522; /*Colour change to orange now makes it visible when moused over.*/
-}
+
 .toggle-home-btn, .toggle-home-btn > a > span {   /*This class gets toggled when a button is hovered over / clicked*/
     -webkit-transition: all .25s;   /*~~Animations*/
     -moz-transition: all .25s;
@@ -187,17 +182,40 @@
     color: #F79522;   /*~~More Styling*/
 }
 
+/*~~~~~~~~~~~~~~~~*/
+/*Some specific home button styling for mobile*/
+/*~~~~~~~~~~~~~~~~*/
+
 #button1 {
+    position: relative;
     padding-right: 15px;
-    border-right: 2px solid #FFFFFF;
 }
 #button2 {
+    position: relative;
     padding-left: 15px;
     padding-right: 15px;
 }
 #button3 {
-    border-left: 2px solid #FFFFFF;   
+    position: relative;
     padding-left: 15px;
+}
+#button1:before, #button2:before {
+    content: " ";
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    right: 0px;
+    bottom: 10px;
+    border-right: .5px solid #FFFFFF;
+}
+#button3:before, #button2:before {
+    content: " ";
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    right: 0px;
+    bottom: 10px;
+    border-left: .5px solid #FFFFFF;
 }
 /*~~~~~~~~~~~~~~~~*/
 /*~~~~~~~~~~~~~~~~*/

@@ -17,12 +17,13 @@
             </li><!-- Same as above
             --><li id="button3">
                 <a href="#"><span><i class="ion-plus-round"></i></span><span>Create</span></a>
-                <ul>
-                    <li><a href="#"><span>From Gallery</span></a></li>
-                    <li><a href="#"><span>Take Photo</span></a></li>
-                    <li><a href="#/modify" ng-click="setToDefaultPhoto()"><span>Default (debug)</span></a></li>
+                <ul id="button3list">
+                    <li><a href="#" id="option1"><span>From Gallery</span></a></li>
+                    <li><a href="#" id="option2"><span>Take Photo</span></a></li>
+                    <li><a href="#/modify" id="option3" ng-click="setToDefaultPhoto()"><span>Default (debug)</span></a></li>
                     <ul></ul>
-                </ul>  
+                </ul>
+            </li>  
         </ul>
     </div> 
 </ion-view>

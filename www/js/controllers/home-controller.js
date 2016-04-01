@@ -9,7 +9,6 @@ app.controller('home-controller', ['$state', '$scope', 'Photo', function($state,
     var btn3 = document.getElementById("button3");
     var market = document.getElementById("market-content");
     var sets = document.getElementById("sets-content");
-        
     //~~~~~~~~~~~~~~~~~~~~
     //Home page photo control
     //~~~~~~~~~~~~~~~~~~~~
@@ -62,6 +61,10 @@ app.controller('home-controller', ['$state', '$scope', 'Photo', function($state,
         sets.style.display = "block";
     }
     
+    toggleCreate = function() {
+        btn3.classList.toggle("toggle-home-btn");
+    }
+    
      btn1.onclick = function() {
         enableMarket();
     }
@@ -70,14 +73,9 @@ app.controller('home-controller', ['$state', '$scope', 'Photo', function($state,
         enableSets();
     }
 
-    $(btn3).hover(
-        function() {
-            $(this).addClass("toggle-home-btn");
-        }, 
-        function() {
-            $(this).removeClass("toggle-home-btn");
-        }
-    );
+    btn3.onclick = function() {
+        toggleCreate();
+    }
     
     enableSets(); //Set tab is open by default
     
